@@ -1,0 +1,72 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"latex-workshop.bibtex-format.tab": "4 spaces",
+		"latex-workshop.latex.recipes":[
+			{
+				"name": "latexmk",
+				"tools": [
+					"pdflatex",
+					"makeglossaries",
+					"biber",
+					"pdflatex",
+					"pdflatex"
+				]
+			},
+		],
+		"latex-workshop.latex.tools":[
+			{
+				"name": "latexmk",
+				"command": "latexmk",
+				"args": [
+					"-shell-escape",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-pdf",
+					"%DOC%"
+				]
+			},
+			{
+				"name": "pdflatex",
+				"command": "pdflatex",
+				"args": [
+					"-shell-escape",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"%DOC%"
+				]
+			},
+			{
+				"name": "makeglossaries",
+				"command": "makeglossaries",
+				"args": [
+					"RN"
+				]
+			},
+			{
+				"name": "makeindex",
+				"command": "makeindex",
+				"args": [
+					"-s RN.ist",
+					"-t RN.glg",
+					"-o RN.gls",
+					"RN.glo"
+				]
+			},
+			{
+				"name": "biber",
+				"command": "biber",
+				"args": [
+					"%DOC%"
+				]
+			}
+		],
+		"cSpell.language": "en,de-DE",
+	}
+}

@@ -1,0 +1,61 @@
+\documentclass[
+	12pt,						 % Schriftgröße
+	DIV=10,						 % Satzspiegelgröße Seitenränder
+	german,						 % für Umlaute, Silbentrennung etc.
+	paper=a4,					 % Papierformat
+	oneside, 
+	titlepage,					 % es wird eine Titelseite verwendet
+	parskip=half,				 % Abstand zwischen Absätzen (halbe Zeile)
+	headings=normal,			 % Größe der Überschriften verkleinern
+	listof=totoc,				 % Verzeichnisse im Inhaltsverzeichnis aufführen
+	bibliography=totoc,			 % Literaturverzeichnis im Inhaltsverzeichnis aufführen
+	numbers=noenddot,			 % Kapitelnummern ohne Punkt	
+	enabledeprecatedfontcommands % Alte Befehle zur unterstüzung von \listofsymbols	
+]{scrreprt}
+
+\makeatletter	
+	\setlength\@fptop{0\p@}  % Entfernt Lücken am Seitenbeginn
+\makeatother
+
+\input{style/_meta.tex}
+\input{style/packages.tex}
+\input{style/pagestyle.tex}
+
+\input{sources/glossary.tex}
+\input{sources/symbols.tex}
+\input{sources/words.tex}
+\makeglossaries
+\input{sources/acronyms.tex}
+
+\begin{document}
+	\input{style/titlepage.tex}
+	
+	\pagenumbering{Roman}
+	\setcounter{tocdepth}{2} % Tiefe des Inhaltsverzeichnisses definiert
+	\tableofcontents
+
+	\input{chapters/1 Einleitung.tex}
+	\input{chapters/2 Grundlagen und Stand der Technik.tex}
+	\input{chapters/3 Konzeption.tex}
+	\input{chapters/4 Ergebnisse.tex}
+	\input{chapters/5 Ausblick.tex}
+	\input{chapters/6 Zusammenfassung.tex}
+	
+	\listoffigures
+	% \listoftables
+	% \printglossary[type=\acronymtype,style=long,nonumberlist,title={Abkürzungsverzeichnis}] % list of acronyms
+    % \printglossary[type=symbolslist, style=long] % list of symbols
+    % \printglossary[type=wordslist,   style=long] % list of symbols
+    \printglossary[type=glossary,style=mcoltreenoname,nonumberlist] % main glossary
+	\printbibliography
+
+	% Sperrvermerk und Selbsterklärung
+	\newpage
+	\phantomsection\addcontentsline{toc}{chapter}{Selbsterklärung zur Prüfungsarbeit/Abschlussarbeit}\label{p1} 
+	\includepdf[pages=1]{sources/Sperrvermerk.pdf}
+	\phantomsection\addcontentsline{toc}{chapter}{Erklärung zur Verwendung dieser Prüfungsarbeit/Abschlussarbeit}\label{p2}
+	\includepdf[pages=2]{sources/Sperrvermerk.pdf}
+
+	\input{chapters/Anhang.tex}
+ 
+\end{document} 

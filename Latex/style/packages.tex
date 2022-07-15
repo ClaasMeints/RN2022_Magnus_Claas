@@ -1,0 +1,198 @@
+% Zur Richtigen Verwendung von Einheiten
+\usepackage[
+locale=DE, 
+%per=symbol-or-fraction
+]{siunitx}
+
+\sisetup{
+	mode = text,
+	detect-family,
+	detect-weight,  
+	exponent-product = \cdot,
+	output-decimal-marker={\text{.}},
+	%math-rm=\mathsf,
+	%text-rm=\sffamily,
+	range-phrase = { -- },
+	per-mode=symbol,
+	per-symbol=/
+}
+\DeclareSIUnit{\var}{var}
+
+% Anpassung des Seitenlayouts -------------------------------------------------------------% 	siehe Seitenstil.tex
+% -------------------------------------------------------------
+\usepackage[headsepline,automark]{scrlayer-scrpage}
+
+\usepackage{listings}
+\usepackage{color}
+% C++ color scheme
+\definecolor{backgroundcolor}{RGB}{237, 241, 237}
+\definecolor{commentcolor}{RGB}{0,128,0}
+\definecolor{keywordcolor}{RGB}{136, 134, 58}
+\definecolor{identifiercolor}{RGB}{24, 79, 110}
+\definecolor{numbercolor}{RGB}{128,128,128}
+\definecolor{preprocessorcolor}{RGB}{128,128,128}
+\definecolor{stringcolor}{RGB}{163,21,21}
+
+\lstdefinestyle{C++}{
+	backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentcolor},
+	directivestyle=\color{preprocessorcolor},
+    keywordstyle=\color{keywordcolor},
+	identifierstyle=\color{identifiercolor},
+    numberstyle=\tiny\color{numbercolor},
+    stringstyle=\color{stringcolor},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{language=C++,escapechar=@,style=C++}
+\usepackage{booktabs}
+\usepackage{eurosym}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+
+\renewcommand{\lstlistingname}{Code} % Damit Codebeispiele mit Code betitelt werden.
+
+
+% Anpassung an Landessprache -------------------------------------------------------------% 	Verwendet globale Option german siehe \documentclass
+% -------------------------------------------------------------
+\usepackage[ngerman]{babel}
+\usepackage{scrhack}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,units}
+\usepackage{wrapfig,caption, placeins}
+\usepackage{multicol}
+\captionsetup{
+	format = plain,
+	justification = centering,
+	labelsep = newline,
+	singlelinecheck = false,
+	labelfont = bf,
+	font = small
+}
+\usepackage{mathptmx,charter,helvet,courier}
+\usepackage[printonlyused, smaller]{acronym}
+\usepackage{wrapfig}
+\usepackage{pgfplots}
+% Umlaute -------------------------------------------------------------% 		Umlaute/Sonderzeichen wie äöüß direkt im Quelltext verwenden (CodePage).
+%		Erlaubt automatische Trennung von Worten mit Umlauten.
+% -------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}			 	% "schöneres" ä
+\usepackage{textcomp} 		% Euro-Zeichen etc.
+\usepackage[german=quotes]{csquotes}
+
+
+% Verwendung von Blindtext zur Layout gestaltung -------------------------------------------------------------
+\usepackage{blindtext}
+
+% Grafiken -------------------------------------------------------------
+% 		Einbinden von Grafiken [draft oder final]
+% 		Option [draft] bindet Bilder nicht ein - auch globale Option
+% -------------------------------------------------------------
+\usepackage{graphicx}
+%\graphicspath{{Grafiken/}} 	% Dort liegen die Bilder des Dokuments
+
+
+% Befehle aus AMSTeX für mathematische Symbole z.B. \boldsymbol \mathbb ----
+\usepackage{amsmath,amsfonts}
+\usepackage{tensor}
+
+% Für Index-Ausgabe; \printindex -------------------------------------------------------------
+\usepackage{makeidx}
+
+% Einfache Definition der Zeilenabstände und Seitenränder -------------------------------------------------------------
+\usepackage{setspace}
+\usepackage{geometry}
+
+
+%% Zum Umfließen von Bildern -------------------------------------------------------------
+\usepackage{floatflt}
+
+
+% Lange URLs umbrechen etc. -------------------------------------------------------------
+\usepackage{url}
+
+% für lange Tabellen
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{diagbox}
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{ragged2e}
+\usepackage{lscape}
+\usepackage{colortbl} %farbige hinterlegung
+
+
+% Spaltendefinition rechtsbündig mit definierter Breite auf dem Deckblatt 
+%------------------------------------------------------------
+\newcolumntype{d}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
+
+% Formatierung von Listen ändern
+\usepackage{paralist}
+% Standardeinstellungen:
+\setdefaultleftmargin{2.5em}{2.2em}{1.87em}{1.7em}{1em}{1em}
+
+%Zur Verwendung von BibLaTex
+\usepackage[
+	style=alphabetic
+]{biblatex}
+\addbibresource{bibliografie.bib}
+\DefineBibliographyStrings{ngerman}{ 
+	andothers = {{et\,al\adddot}},             
+}
+
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{xspace}
+\usepackage{scrhack}
+
+\usepackage[acronyms,toc]{glossaries} %Glossar Achtung Perl.exe muss installiert werden
+\usepackage{glossaries-extra}
+\usepackage{glossary-mcols}
+
+% pdf-Optionen  -------------------------------------------------------------
+\usepackage{pgfplots} % Für Kompatibilät unter verschiedenen OS
+\pgfplotsset{compat=1.7}
+
+\pdfminorversion=7 % Verwende pdf Version 1.7
+
+\usepackage[
+bookmarks,
+bookmarksopen=true,
+bookmarksnumbered=true,
+colorlinks=true,
+%linkcolor=red, % einfache interne Verknüpfungen
+%anchorcolor=black,% Ankertext
+%citecolor=blue, % Verweise auf Literaturverzeichniseinträge im Text
+%filecolor=magenta, % Verknüpfungen, die lokale Dateien öffnen
+%menucolor=red, % Acrobat-Menüpunkte
+%urlcolor=cyan, 
+% für die Druckversion können die Farben ausgeschaltet werden:
+linkcolor=black, % einfache interne Verknüpfungen
+anchorcolor=black,% Ankertext
+citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+menucolor=black, % Acrobat-Menüpunkte
+urlcolor=black, 
+%backref,
+%pagebackref,
+plainpages=false,% zur korrekten Erstellung der Bookmarks
+pdfpagelabels,% zur korrekten Erstellung der Bookmarks
+hypertexnames=false,% zur korrekten Erstellung der Bookmarks
+linktoc=all%Sowohl Seitenzahl als auch Text als Link
+]{hyperref}
+\usepackage{bookmark}
+\usepackage[all]{hypcap} % jump to top of figure
+\usepackage{pdfpages}

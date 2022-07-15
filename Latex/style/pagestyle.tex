@@ -1,0 +1,53 @@
+% Zeilenabstand ------------------------------------------------------------
+\onehalfspacing
+
+
+% Seitenränder -------------------------------------------------------------
+\geometry{paper=a4paper,left=25mm,right=25mm,top=30mm,bottom=40mm}
+
+% Kopf- und Fußzeilen ------------------------------------------------------
+\pagestyle{scrheadings}
+
+% Kopf- und Fußzeile auch auf Kapitelanfangsseiten -------------------------
+\renewcommand*{\chapterpagestyle}{scrheadings}
+
+% Schriftform der Kopfzeile ------------------------------------------------
+\renewcommand{\headfont}{\normalfont}
+
+% Kopfzeile ----------------------------------------------------------------
+\ihead{
+	\parbox{11.8cm}{\normalsize{ \ }}\\
+	%\small{\untertitel}\\[2ex]
+	\textit{ \headmark}
+}
+\chead{
+		%\includegraphics[height=0.8cm]{Grafiken/EWENETZ_Logo.png}
+}
+\ohead{	
+		\includegraphics[height=1.4cm]{figures/Logo_PHWT.png}	
+}
+\setlength{\headheight}{21mm} % Höhe der Kopfzeile
+
+
+% Fußzeile -----------------------------------------------------------------
+\ifoot{
+	%\includegraphics[height=1.5cm]{Grafiken/Logo_PHWT.png}
+}
+\cfoot{}
+\ofoot{\pagemark}
+\setlength{\footheight}{15mm}
+
+
+% erzeugt ein wenig mehr Platz hinter einem Punkt --------------------------
+%\frenchspacing 
+
+% Schusterjungen und Hurenkinder vermeiden
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+
+%% Fußnoten fortlaufend durchnummerieren ------------------------------------
+%\counterwithout{footnote}{chapter}
+\setkomafont{section}{\large} 
+
