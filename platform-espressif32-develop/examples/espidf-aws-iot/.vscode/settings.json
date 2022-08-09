@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "aws_iot_version.h": "c",
+        "aws_iot_json_utils.h": "c",
+        "cjson.h": "c",
+        "aws_iot_mqtt_client_interface.h": "c",
+        "aws_iot_config.h": "c"
+    }
+}
