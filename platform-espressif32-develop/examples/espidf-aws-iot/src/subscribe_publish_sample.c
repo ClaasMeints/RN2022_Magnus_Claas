@@ -164,14 +164,16 @@ void iot_subscribe_callback_handler(AWS_IoT_Client* pClient, char* topicName, ui
 {
     ESP_LOGI(TAG, "Subscribe callback");
     ESP_LOGI(TAG, "%.*s\t%.*s", topicNameLen, topicName, (int)params->payloadLen, (char*)params->payload);
-    cJSON *root, *isCorrect;
+    cJSON *root, *isCorrect = NULL;
     root = cJSON_ParseWithLength((char*)params->payload, (size_t)params->payloadLen);
     isCorrect = cJSON_GetObjectItem(root, "isCorrect");
-    gpio_set_level(GPIO_OUTPUT_IO_0, cJSON_GetNumberValue(isCorrect));
-    gpio_set_level(GPIO_OUTPUT_IO_1, !cJSON_GetNumberValue(isCorrect));
-    vTaskDelay(pdMS_TO_TICKS(800));
-    gpio_set_level(GPIO_OUTPUT_IO_0, 0);
-    gpio_set_level(GPIO_OUTPUT_IO_1, 0);
+    if (isCorrect) {
+        gpio_set_level(GPIO_OUTPUT_IO_0, cJSON_GetNumberValue(isCorrect));
+        gpio_set_level(GPIO_OUTPUT_IO_1, !cJSON_GetNumberValue(isCorrect));
+        vTaskDelay(pdMS_TO_TICKS(800));
+        gpio_set_level(GPIO_OUTPUT_IO_0, 0);
+        gpio_set_level(GPIO_OUTPUT_IO_1, 0);
+    }
 }
 
 void disconnectCallbackHandler(AWS_IoT_Client* pClient, void* data)
@@ -379,6 +381,8 @@ static void initialise_wifi(void)
 
 void app_main()
 {
+    esp_log_level_set("*", ESP_LOG_NONE);
+
     gpio_config_t io_conf = {};
     io_conf.intr_type = GPIO_INTR_DISABLE; // disable interrupt
     io_conf.mode = GPIO_MODE_OUTPUT; // set as output mode
