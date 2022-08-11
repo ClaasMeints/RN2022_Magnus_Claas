@@ -11,27 +11,42 @@ Ein weiteres Konzept stellt das Utility-Computing dar. Der Grundgedanke hierbei 
 
  
 \section{Definition}
-Eine einheitliche Definition  für Cloud Computing existiert in der Literatur nicht. Vorallem weil der Begriff relativ unscharf ist und sich die Technologie noch im Wandel befindet. Nach besteht Cloud Computing aus einer Ansammlung von Diensten, Anwendungen oder ITRessourcen, die dem Nutzer flexibel und skalierbar über das Internet angeboten werden. AWS als größter Cloud Anbieter definiert Cloud computing wie folgt: "Cloud Computing" ist die bedarfsabhängige Bereitstellung von IT-Ressourcen über das Internet zu nutzungsabhängigen Preisen. Statt physische Rechenzentren und Server zu erwerben, zu besitzen und zu unterhalten, können Sie über einen Cloud-Anbieter wie Amazon Web Services (AWS) nach Bedarf auf Technologieservices wie beispielsweise Rechenleistung, Speicher und Datenbanken zugreifen." [https://aws.amazon.com/de/what-is-cloud-computing/] 
+Eine einheitliche Definition  für Cloud Computing existiert in der Literatur nicht. Vorallem weil der Begriff relativ unscharf ist und sich die Technologie noch im Wandel befindet. Nach besteht Cloud Computing aus einer Ansammlung von Diensten, Anwendungen oder IT-Ressourcen, die dem Nutzer flexibel und skalierbar über das Internet angeboten werden. AWS als größter Cloud Anbieter definiert Cloud computing wie folgt: "Cloud Computing" ist die bedarfsabhängige Bereitstellung von IT-Ressourcen über das Internet zu nutzungsabhängigen Preisen. Statt physische Rechenzentren und Server zu erwerben, zu besitzen und zu unterhalten, können Sie über einen Cloud-Anbieter wie Amazon Web Services (AWS) nach Bedarf auf Technologieservices wie beispielsweise Rechenleistung, Speicher und Datenbanken zugreifen." [https://aws.amazon.com/de/what-is-cloud-computing/] 
 
 \section{Merkmale}
 Da es jedoch keine einheitliche Definition gibt lässt sich Cloud Computing lediglich auf Grundlage der Merkmale Charakterisieren. Die Merkmale des National Institute of Technologys and Standards (NIST) gelten in der Praxis als auch Forschunge als anerkannt und sind in Abbildung \ref{fig:2.2} zu sehen
 \fig{2.2}{https://www.uni-muenster.de/imperia/md/content/angewandteinformatik/aktivitaeten/publikationen/daas-fuer-kmu.pdf}
 \subsection{Ressource Pooling}
-Der Begriff Ressource Pooling beschreibt das Ansammeln von verschiedensten IT-Ressourcen zu einem Pool auf den die Benutzer zugreifen. Der Benutzer greift aus Seiner Sicht auf Ressourcen wie z.B. eine virtuell Maschine, Speicherkapazität oder eine Dienstsinstanz zu. Mithilfe von Virtualisierung lassen sich physische Ressourcen für den Benutzer auf virteulle Ressourcen abbilden und gleichzeitig besteht eine Trennung. Der Benutzer sieht also nicht was unter seiner virtuellen Maschine physisch liegt. Durch die Virtualisierung lassen sich Rechenzentren erheblich effizienter betreiben. Die Auslastung lässt sich hierbei statt der herkömmlichen 8 - 15 Prozent auf 70 - 80 Prozent steigern. Dies ist Interessant, da Server während sie untätig sind fast dieselbe Leistung benötigen, als wären sie ausgelastet [https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/vmware-reduce-power-consumption-wp.pdf]. Der Benutzer hat somit keinen Einfluss auf die physischen Ressourcen auf welchen seine Dienste ausgeführt werden.Viele Cloud Anbieter bieten jedoch die Option an den Standort der physischen Ressourcen einzugrenzen z.B. aufgrund von Datenschutzrichtlinien.  [Buyya et al. 2008]
+Der Begriff Ressource Pooling beschreibt das Ansammeln von verschiedensten IT-Ressourcen zu einem Pool auf den die Benutzer zugreifen. Der Benutzer greift aus Seiner Sicht auf Ressourcen wie z.B. eine virtuell Maschine, Speicherkapazität oder eine Dienstinstanz zu. Mithilfe von Virtualisierung lassen sich physische Ressourcen für den Benutzer auf virtuelle Ressourcen abbilden und gleichzeitig besteht eine Trennung. Der Benutzer sieht also nicht was unter seiner virtuellen Maschine physisch liegt. Durch die Virtualisierung lassen sich Rechenzentren erheblich effizienter betreiben. Die Auslastung lässt sich hierbei statt der herkömmlichen 8 - 15 Prozent auf 70 - 80 Prozent steigern. Dies ist Interessant, da Server während sie untätig sind fast dieselbe Leistung benötigen, als wären sie ausgelastet [https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/vmware-reduce-power-consumption-wp.pdf]. Der Benutzer hat somit keinen Einfluss auf die physischen Ressourcen mit denen seine Dienste ausgeführt werden. Viele Cloud Anbieter bieten jedoch die Option an den Standort der physischen Ressourcen einzugrenzen z.B. aufgrund von Datenschutzrichtlinien.  [Buyya et al. 2008]
 \subsection{Rapid Elasticity}
-Der Cloud ist es möglich auf Änderungen der Rechenleistung schnell und dynamisch zu reagieren. Die meisten Anbierter können dies auch ohne Vorlaufzeit, sodass der Benutzer das Gefühl suggeriert bekommt, aus unendlichen Ressourcen zu schöpfen. Die Anpassung erfolgt hierbei händisch durch den Benutzer oder automatisch durch den Anbieter. Wenn also z.B. ein Geschäft zu Weihnachten eine höhere Anzahl an Anfragen auf ihrer Website erwartet, passt sich die Cloud automatisch an die steigenden Anfragen an. 
+Der Cloud ist es möglich auf Änderungen der Rechenleistung schnell und dynamisch zu reagieren. Die meisten Anbieter können dies auch ohne Vorlaufzeit, sodass der Benutzer das Gefühl suggeriert bekommt, aus unendlichen Ressourcen zu schöpfen. Die Anpassung erfolgt hierbei händisch durch den Benutzer oder automatisch durch den Anbieter. Wenn also z.B. ein Geschäft zu Weihnachten eine höhere Anzahl an Anfragen auf ihrer Website erwartet, passt sich die Cloud automatisch an die steigenden Anfragen an. 
 [Vaquero et al. 2009].
 \subsection{On-demand Self-service}
-Eine weitere Charakteristik der Cloud ist die Möglichkeit sich nach Bedarf selbst bedienen  zu können. Der Cloudanbierter muss somit dem Benutzer auf anfrage die angeforderte Rechenleistung bereitstellen ohne dabei viel Konfiguration vornehmen zu müssen um die Elastizität zu gewährleisten. Der wirtschaftliche Betrieb ist hierbei nur durch automatisierte Verwaltung und Optimierung gewährleistet und bildet ein wichtiges Merkmal eines Cloud Anbieters.
+Eine weitere Charakteristik der Cloud ist die Möglichkeit sich nach Bedarf selbst bedienen  zu können. Der Cloudanbieter muss somit dem Benutzer auf anfrage die angeforderte Rechenleistung bereitstellen ohne dabei viel Konfiguration vornehmen zu müssen um die Elastizität zu gewährleisten. Der wirtschaftliche Betrieb ist hierbei nur durch automatisierte Verwaltung und Optimierung gewährleistet und bildet ein wichtiges Merkmal eines Cloud Anbieters.
 [Wang et al. 2008]
 \subsection{Broad Network Access}
 In den meisten Fällen erfolgt der Zugriff auf die Ressourcen der Cloud über ein Netzwerk. Um einen Zugriff von diversen Geräten zu ermöglichen, werden standardisierte REST Schnittstellen oder Web-APIs und Protokolle bzw. Datenformate wie z.B. HTTP, XML JSON usw. verwendet. Vorraussetzung hierfür ist jedoch eine ausreichende Bandbreite der Verbindung.
-\subsection{Measured Service}
 
+\textbf{Measured Service}
+
+Nach dem Vorbild des Utility Computings wird bei Cloud Anbietern nach den tatsächlich genutzten Ressourcen bezahlt. Um dies zu gewährleisten muss der Anbieter die vom Kunden genutzten Ressourcen mithilfe eines Messverfahrens und einer Messgröße messen. Beispielsweise Datenspeicher werden anhand des genutzten Speicherplatz abgerechnet und Rechenleistung nach den durchgeführten CPU Zyklen. Zusammen mit der hohen Elastizität (Rapid Elasticity) lässt sich der Kunde also präzise seine  genutzten Abrechnen was als eines der Hauptmerkmale der Cloud gilt.
 [Vaquero et al. 2009],
 
 \section{Bereitstellungsmodelle}
-[Vaquero et al. 2009]
+Clouds lassen sich aufgrund ihrer Öfnnung nach außen in vier verschiedene Bereitstellungsmodelle einteilen. 
+\fig{2.3}{IoT}
+
+\textbf{Public Cloud}
+
+Die Public Cloud ist eine öffentliche Cloud, die ihre Dienste der Öffentlichkeit anbietet und gegen Bezahlung genutzt werden kann. Sämtliche Infrastruktur und die angebotenen Dienste sind hierbei im Besitz des Anbieters. Ein Beispiel für diese Cloud ist AWS mit seinen Diensten.[https://www.springerprofessional.de/internet-of-things-cloud-computing-und-big-data/23303272?searchResult=1.internet%20of%20things&searchBackButton=true]
+
+\textbf{Private Cloud}
+
+Die Private Cloud beschränkt sich meist auf eine Organisation und ist nicht öffentlich zugänglich. Dies lässt eine erweiterte Einstellung der Dtaensicherheit hinsichtlich der Organisationsspezifischen Anforderungen zu. [https://www.springerprofessional.de/internet-of-things-cloud-computing-und-big-data/23303272?searchResult=1.internet/%20of%20things&searchBackButton=true] Der Standort der Server kann sich hierbei auf dem Grundstück der Firma aber auch woanders befinden. Die VErwaltung kann ébenfalls durch die Organisation oder einen Anbieter erfolgen. 
+
+\textbf{Hybrid }
+\textbf{Public Cloude}
+
 
 \section{Service-Ebenen}
 \fig{2.1}{Wirtz, B.W. (2018), Electronic Business, 6., aktualisierte und erweiterte Auflage 2018, Wiesbaden 2018.}
