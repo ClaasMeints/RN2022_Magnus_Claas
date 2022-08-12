@@ -1,20 +1,20 @@
 % Zur Richtigen Verwendung von Einheiten
 \usepackage[
-locale=DE, 
-%per=symbol-or-fraction
+    locale=DE, 
+    %per=symbol-or-fraction
 ]{siunitx}
 
 \sisetup{
-	mode = text,
-	detect-family,
-	detect-weight,  
-	exponent-product = \cdot,
-	output-decimal-marker={\text{.}},
-	%math-rm=\mathsf,
-	%text-rm=\sffamily,
-	range-phrase = { -- },
-	per-mode=symbol,
-	per-symbol=/
+    mode = text,
+    detect-family,
+    detect-weight,  
+    exponent-product = \cdot,
+    output-decimal-marker={\text{.}},
+    %math-rm=\mathsf,
+    %text-rm=\sffamily,
+    range-phrase = { -- },
+    per-mode=symbol,
+    per-symbol=/
 }
 \DeclareSIUnit{\var}{var}
 
@@ -34,11 +34,11 @@ locale=DE,
 \definecolor{stringcolor}{RGB}{163,21,21}
 
 \lstdefinestyle{C++}{
-	backgroundcolor=\color{backgroundcolor},   
+    backgroundcolor=\color{backgroundcolor},   
     commentstyle=\color{commentcolor},
-	directivestyle=\color{preprocessorcolor},
+    directivestyle=\color{preprocessorcolor},
     keywordstyle=\color{keywordcolor},
-	identifierstyle=\color{identifiercolor},
+    identifierstyle=\color{identifiercolor},
     numberstyle=\tiny\color{numbercolor},
     stringstyle=\color{stringcolor},
     basicstyle=\ttfamily\footnotesize,
@@ -70,12 +70,12 @@ locale=DE,
 \usepackage{wrapfig,caption, placeins}
 \usepackage{multicol}
 \captionsetup{
-	format = plain,
-	justification = centering,
-	labelsep = newline,
-	singlelinecheck = false,
-	labelfont = bf,
-	font = small
+    format = plain,
+    justification = centering,
+    labelsep = newline,
+    singlelinecheck = false,
+    labelfont = bf,
+    font = small
 }
 \usepackage{mathptmx,charter,helvet,courier}
 \usepackage[printonlyused, smaller]{acronym}
@@ -144,11 +144,11 @@ locale=DE,
 
 %Zur Verwendung von BibLaTex
 \usepackage[
-	style=alphabetic
+    style=alphabetic
 ]{biblatex}
 \addbibresource{bibliografie.bib}
-\DefineBibliographyStrings{ngerman}{ 
-	andothers = {{et\,al\adddot}},             
+\DefineBibliographyStrings{ngerman}{
+    andothers = {{et\,al\adddot}},             
 }
 
 \usepackage{xcolor}
@@ -169,29 +169,29 @@ locale=DE,
 \pdfminorversion=7 % Verwende pdf Version 1.7
 
 \usepackage[
-bookmarks,
-bookmarksopen=true,
-bookmarksnumbered=true,
-colorlinks=true,
-%linkcolor=red, % einfache interne Verknüpfungen
-%anchorcolor=black,% Ankertext
-%citecolor=blue, % Verweise auf Literaturverzeichniseinträge im Text
-%filecolor=magenta, % Verknüpfungen, die lokale Dateien öffnen
-%menucolor=red, % Acrobat-Menüpunkte
-%urlcolor=cyan, 
-% für die Druckversion können die Farben ausgeschaltet werden:
-linkcolor=black, % einfache interne Verknüpfungen
-anchorcolor=black,% Ankertext
-citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
-filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
-menucolor=black, % Acrobat-Menüpunkte
-urlcolor=black, 
-%backref,
-%pagebackref,
-plainpages=false,% zur korrekten Erstellung der Bookmarks
-pdfpagelabels,% zur korrekten Erstellung der Bookmarks
-hypertexnames=false,% zur korrekten Erstellung der Bookmarks
-linktoc=all%Sowohl Seitenzahl als auch Text als Link
+    bookmarks,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    colorlinks=true,
+    %linkcolor=red, % einfache interne Verknüpfungen
+    %anchorcolor=black,% Ankertext
+    %citecolor=blue, % Verweise auf Literaturverzeichniseinträge im Text
+    %filecolor=magenta, % Verknüpfungen, die lokale Dateien öffnen
+    %menucolor=red, % Acrobat-Menüpunkte
+    %urlcolor=cyan, 
+    % für die Druckversion können die Farben ausgeschaltet werden:
+    linkcolor=black, % einfache interne Verknüpfungen
+    anchorcolor=black,% Ankertext
+    citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    menucolor=black, % Acrobat-Menüpunkte
+    urlcolor=black, 
+    %backref,
+    %pagebackref,
+    plainpages=false,% zur korrekten Erstellung der Bookmarks
+    pdfpagelabels,% zur korrekten Erstellung der Bookmarks
+    hypertexnames=false,% zur korrekten Erstellung der Bookmarks
+    linktoc=all%Sowohl Seitenzahl als auch Text als Link
 ]{hyperref}
 \usepackage{bookmark}
 \usepackage[all]{hypcap} % jump to top of figure

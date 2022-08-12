@@ -1,6 +1,7 @@
 /*
  * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * Additions Copyright 2016 Espressif Systems (Shanghai) PTE LTD
+ * Changed by Claas Meints 2022
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -32,11 +33,9 @@
 #include <unistd.h>
 
 #include "driver/gpio.h"
-#include "driver/sdmmc_host.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_system.h"
-#include "esp_vfs_fat.h"
 #include "esp_wifi.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/event_groups.h"
@@ -71,12 +70,6 @@ static void gpio_isr_handler(void* arg)
     xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
 }
 
-/* The examples use simple WiFi configuration that you can set via
-   'make menuconfig'.
-
-   If you'd rather not, just change the below entries to strings with
-   the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
-*/
 #define EXAMPLE_WIFI_SSID CONFIG_WIFI_SSID
 #define EXAMPLE_WIFI_PASS CONFIG_WIFI_PASSWORD
 
@@ -88,35 +81,12 @@ static EventGroupHandle_t wifi_event_group;
    to the AP with an IP? */
 const int CONNECTED_BIT = BIT0;
 
-/* CA Root certificate, device ("Thing") certificate and device
- * ("Thing") key.
-
-   Example can be configured one of two ways:
-
-   "Embedded Certs" are loaded from files in "certs/" and embedded into the app binary.
-
-   "Filesystem Certs" are loaded from the filesystem (SD card, etc.)
-
-   See example README for more details.
-*/
-#if defined(CONFIG_EXAMPLE_EMBEDDED_CERTS)
-
 extern const uint8_t aws_root_ca_pem_start[] asm("_binary_aws_root_ca_pem_start");
 extern const uint8_t aws_root_ca_pem_end[] asm("_binary_aws_root_ca_pem_end");
 extern const uint8_t certificate_pem_crt_start[] asm("_binary_certificate_pem_crt_start");
 extern const uint8_t certificate_pem_crt_end[] asm("_binary_certificate_pem_crt_end");
 extern const uint8_t private_pem_key_start[] asm("_binary_private_pem_key_start");
 extern const uint8_t private_pem_key_end[] asm("_binary_private_pem_key_end");
-
-#elif defined(CONFIG_EXAMPLE_FILESYSTEM_CERTS)
-
-static const char* DEVICE_CERTIFICATE_PATH = CONFIG_EXAMPLE_CERTIFICATE_PATH;
-static const char* DEVICE_PRIVATE_KEY_PATH = CONFIG_EXAMPLE_PRIVATE_KEY_PATH;
-static const char* ROOT_CA_PATH = CONFIG_EXAMPLE_ROOT_CA_PATH;
-
-#else
-#error "Invalid method for loading certs"
-#endif
 
 /**
  * @brief Default MQTT HOST URL is pulled from the aws_iot_config.h
@@ -202,8 +172,6 @@ void aws_iot_task(void* param)
 {
     char cPayload[100];
 
-    int32_t i = 0;
-
     IoT_Error_t rc = FAILURE;
 
     AWS_IoT_Client client;
@@ -211,7 +179,6 @@ void aws_iot_task(void* param)
     IoT_Client_Connect_Params connectParams = iotClientConnectParamsDefault;
 
     IoT_Publish_Message_Params paramsQOS0;
-    IoT_Publish_Message_Params paramsQOS1;
 
     ESP_LOGI(TAG, "AWS IoT SDK Version %d.%d.%d-%s", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH, VERSION_TAG);
 
@@ -219,38 +186,15 @@ void aws_iot_task(void* param)
     mqttInitParams.pHostURL = HostAddress;
     mqttInitParams.port = port;
 
-#if defined(CONFIG_EXAMPLE_EMBEDDED_CERTS)
     mqttInitParams.pRootCALocation = (char*)aws_root_ca_pem_start;
     mqttInitParams.pDeviceCertLocation = (char*)certificate_pem_crt_start;
     mqttInitParams.pDevicePrivateKeyLocation = (char*)private_pem_key_start;
-
-#elif defined(CONFIG_EXAMPLE_FILESYSTEM_CERTS)
-    mqttInitParams.pRootCALocation = ROOT_CA_PATH;
-    mqttInitParams.pDeviceCertLocation = DEVICE_CERTIFICATE_PATH;
-    mqttInitParams.pDevicePrivateKeyLocation = DEVICE_PRIVATE_KEY_PATH;
-#endif
 
     mqttInitParams.mqttCommandTimeout_ms = 20000;
     mqttInitParams.tlsHandshakeTimeout_ms = 5000;
     mqttInitParams.isSSLHostnameVerify = true;
     mqttInitParams.disconnectHandler = disconnectCallbackHandler;
     mqttInitParams.disconnectHandlerData = NULL;
-
-#ifdef CONFIG_EXAMPLE_SDCARD_CERTS
-    ESP_LOGI(TAG, "Mounting SD card...");
-    sdmmc_host_t host = SDMMC_HOST_DEFAULT();
-    sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT();
-    esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-        .format_if_mount_failed = false,
-        .max_files = 3,
-    };
-    sdmmc_card_t* card;
-    esp_err_t ret = esp_vfs_fat_sdmmc_mount("/sdcard", &host, &slot_config, &mount_config, &card);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to mount SD card VFAT filesystem. Error: %s", esp_err_to_name(ret));
-        abort();
-    }
-#endif
 
     rc = aws_iot_mqtt_init(&client, &mqttInitParams);
     if (SUCCESS != rc) {
@@ -311,10 +255,6 @@ void aws_iot_task(void* param)
     paramsQOS0.payload = (void*)cPayload;
     paramsQOS0.isRetained = 0;
 
-    paramsQOS1.qos = QOS1;
-    paramsQOS1.payload = (void*)cPayload;
-    paramsQOS1.isRetained = 0;
-
     while ((NETWORK_ATTEMPTING_RECONNECT == rc || NETWORK_RECONNECTED == rc || SUCCESS == rc)) {
 
         // Max time the yield function will wait for read messages
@@ -334,10 +274,6 @@ void aws_iot_task(void* param)
             sprintf(cPayload, "%s", cJSON_Print(root));
             paramsQOS0.payloadLen = strlen(cPayload);
             rc = aws_iot_mqtt_publish(&client, TOPIC, TOPIC_LEN, &paramsQOS0);
-            // if (rc == MQTT_REQUEST_TIMEOUT_ERROR) {
-            //     ESP_LOGW(TAG, "QOS1 publish ack not received.");
-            //     rc = SUCCESS;
-            // }
         }
     }
 
