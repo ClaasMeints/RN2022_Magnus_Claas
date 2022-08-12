@@ -14,9 +14,16 @@
     notitlepage
 ]{scrreprt}
 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
 \makeatletter	
 	\setlength\@fptop{0\p@}  % Entfernt Lücken am Seitenbeginn
 \makeatother
+
+
 
 \input{style/_meta.tex}
 \input{style/packages.tex}
