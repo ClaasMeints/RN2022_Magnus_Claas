@@ -1,2 +1,62 @@
 \chapter{Was ist \Gls{Cloud Computing}}\label{ch:2}
-\fig{2.1}{IoT}
+%\fig{2.0}{IoT}
+\section{Geschichte und Urpsrung}
+Bei der Cloud handelt es sich nicht um eine neue Technologie sondern eher um eine Wiederverwendung mehrerer bekannter Technologien. Um also das Konzept hinter Cloud Computing zu verstehen wird kurz áuf die einzelnen Vorgänger eingegangen.
+
+Dir Grundidee reicht bereits in die 1960er Jahre zurück. Bereits damals bestand der Grundgedanke, größere Probleme auf mehrere Rechner zu verteilen und somit effizienter zu berechnen. Das hierbei enstehende System nennt sich verteiltes System und die einzelnen Rechner werden Knoten genannt. Dies wurde damls in Form von "Cluster Computing" durchgeführt. Hierbei werden identische Rechner durch ein hochgeschwindigkeits Netzwerk miteinander Verbunden, was zu einer völlig neuen Rechenleistung und Verfügbarkeit führte. Diese Lösung stellt sich als deutlich günstiger als ein Großrechner heraus und wird noch heute in Supercomputern angewandt.
+
+Wenn das Netzwerk, anders als beim Grid-Computing, aus Knoten mit verschiedenen Aspekten aufgabeut ist, wird vom Grid-Computing gesprochen. Die verschiednen Knoten können sich hierbei in Hardware, Software oder ihrer Anbindung an das Netzwerk unterscheiden. Zudem könne sich die verschiedenen Knoten vom Netzwerk trennen. Dieses Konzept wird häufig dazu genutzt, um unbenutzte CPUs verschiednener Rechner auszunutzen und somit Große Probleme in kleinen Teilproblemen auf verschiedenen Rechnern zu bearbeiten. 
+
+Ein weiteres Konzept stellt das Utility-Computing dar. Der Grundgedanke hierbei ist es, dass der Nutzer nur seine genutzte Rechenleistung bezahlt. Oft wird hier der Vergleich mit der Steckdose gezogen, da hier der Kunde ebenfalls nur für seinen bezogenen Strom bezahlt[https://d-nb.info/1065664664/34]. Etwaige überlegungen sind jedoch an der nicht verfügbaren Hardware und dem mangehaften Netzausbau gescheitert. Schließlich wurde das Konzept in den 1990er Jharen in das Konzept der Cloud integriert und ist fester Bestandteil des Konzepts.
+
+ 
+\section{Definition}
+Eine einheitliche Definition  für Cloud Computing existiert in der Literatur nicht. Vorallem weil der Begriff relativ unscharf ist und sich die Technologie noch im Wandel befindet. Nach besteht Cloud Computing aus einer Ansammlung von Diensten, Anwendungen oder IT-Ressourcen, die dem Nutzer flexibel und skalierbar über das Internet angeboten werden. AWS als größter Cloud Anbieter definiert Cloud computing wie folgt: "Cloud Computing" ist die bedarfsabhängige Bereitstellung von IT-Ressourcen über das Internet zu nutzungsabhängigen Preisen. Statt physische Rechenzentren und Server zu erwerben, zu besitzen und zu unterhalten, können Sie über einen Cloud-Anbieter wie Amazon Web Services (AWS) nach Bedarf auf Technologieservices wie beispielsweise Rechenleistung, Speicher und Datenbanken zugreifen." [https://aws.amazon.com/de/what-is-cloud-computing/] 
+
+\section{Merkmale}
+Da es jedoch keine einheitliche Definition gibt lässt sich Cloud Computing lediglich auf Grundlage der Merkmale Charakterisieren. Die Merkmale des National Institute of Technologys and Standards (NIST) gelten in der Praxis als auch Forschunge als anerkannt und sind in Abbildung \ref{fig:2.2} zu sehen
+\fig{2.2}{https://www.uni-muenster.de/imperia/md/content/angewandteinformatik/aktivitaeten/publikationen/daas-fuer-kmu.pdf}
+\subsection{Ressource Pooling}
+Der Begriff Ressource Pooling beschreibt das Ansammeln von verschiedensten IT-Ressourcen zu einem Pool auf den die Benutzer zugreifen. Der Benutzer greift aus Seiner Sicht auf Ressourcen wie z.B. eine virtuell Maschine, Speicherkapazität oder eine Dienstinstanz zu. Mithilfe von Virtualisierung lassen sich physische Ressourcen für den Benutzer auf virtuelle Ressourcen abbilden und gleichzeitig besteht eine Trennung. Der Benutzer sieht also nicht was unter seiner virtuellen Maschine physisch liegt. Durch die Virtualisierung lassen sich Rechenzentren erheblich effizienter betreiben. Die Auslastung lässt sich hierbei statt der herkömmlichen 8 - 15 Prozent auf 70 - 80 Prozent steigern. Dies ist Interessant, da Server während sie untätig sind fast dieselbe Leistung benötigen, als wären sie ausgelastet [https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/vmware-reduce-power-consumption-wp.pdf]. Der Benutzer hat somit keinen Einfluss auf die physischen Ressourcen mit denen seine Dienste ausgeführt werden. Viele Cloud Anbieter bieten jedoch die Option an den Standort der physischen Ressourcen einzugrenzen z.B. aufgrund von Datenschutzrichtlinien.  [Buyya et al. 2008]
+\subsection{Rapid Elasticity}
+Der Cloud ist es möglich auf Änderungen der Rechenleistung schnell und dynamisch zu reagieren. Die meisten Anbieter können dies auch ohne Vorlaufzeit, sodass der Benutzer das Gefühl suggeriert bekommt, aus unendlichen Ressourcen zu schöpfen. Die Anpassung erfolgt hierbei händisch durch den Benutzer oder automatisch durch den Anbieter. Wenn also z.B. ein Geschäft zu Weihnachten eine höhere Anzahl an Anfragen auf ihrer Website erwartet, passt sich die Cloud automatisch an die steigenden Anfragen an. 
+[Vaquero et al. 2009].
+\subsection{On-demand Self-service}
+Eine weitere Charakteristik der Cloud ist die Möglichkeit sich nach Bedarf selbst bedienen  zu können. Der Cloudanbieter muss somit dem Benutzer auf anfrage die angeforderte Rechenleistung bereitstellen ohne dabei viel Konfiguration vornehmen zu müssen um die Elastizität zu gewährleisten. Der wirtschaftliche Betrieb ist hierbei nur durch automatisierte Verwaltung und Optimierung gewährleistet und bildet ein wichtiges Merkmal eines Cloud Anbieters.
+[Wang et al. 2008]
+\subsection{Broad Network Access}
+In den meisten Fällen erfolgt der Zugriff auf die Ressourcen der Cloud über ein Netzwerk. Um einen Zugriff von diversen Geräten zu ermöglichen, werden standardisierte REST Schnittstellen oder Web-APIs und Protokolle bzw. Datenformate wie z.B. HTTP, XML JSON usw. verwendet. Vorraussetzung hierfür ist jedoch eine ausreichende Bandbreite der Verbindung.
+
+\textbf{Measured Service}
+
+Nach dem Vorbild des Utility Computings wird bei Cloud Anbietern nach den tatsächlich genutzten Ressourcen bezahlt. Um dies zu gewährleisten muss der Anbieter die vom Kunden genutzten Ressourcen mithilfe eines Messverfahrens und einer Messgröße messen. Beispielsweise Datenspeicher werden anhand des genutzten Speicherplatz abgerechnet und Rechenleistung nach den durchgeführten CPU Zyklen. Zusammen mit der hohen Elastizität (Rapid Elasticity) lässt sich der Kunde also präzise seine  genutzten Abrechnen was als eines der Hauptmerkmale der Cloud gilt.
+[Vaquero et al. 2009],
+
+\section{Bereitstellungsmodelle}
+Clouds lassen sich aufgrund ihrer Öfnnung nach außen in vier verschiedene Bereitstellungsmodelle einteilen. Dieverschiedenen Modelle sind in Abbildung \ref{2.3} veranschaulicht. 
+\fig{2.3}{IoT}
+
+\textbf{Public Cloud}
+
+Die Public Cloud ist eine öffentliche Cloud, die ihre Dienste der Öffentlichkeit anbietet und gegen Bezahlung genutzt werden kann. Sämtliche Infrastruktur und die angebotenen Dienste sind hierbei im Besitz des Anbieters. Ein Beispiel für diese Cloud ist AWS mit seinen Diensten.[https://www.springerprofessional.de/internet-of-things-cloud-computing-und-big-data/23303272?searchResult=1.internet%20of%20things&searchBackButton=true]
+
+\textbf{Private Cloud}
+
+Die Private Cloud beschränkt sich meist auf eine Organisation und ist nicht öffentlich zugänglich. Dies lässt eine erweiterte Einstellung der Dtaensicherheit hinsichtlich der Organisationsspezifischen Anforderungen zu. [https://www.springerprofessional.de/internet-of-things-cloud-computing-und-big-data/23303272?searchResult=1.internet/%20of%20things&searchBackButton=true] Der Standort der Server kann sich hierbei auf dem Grundstück der Firma aber auch woanders befinden. Die VErwaltung kann ébenfalls durch die Organisation oder einen Anbieter erfolgen. 
+
+\textbf{Community Cloud}
+Die Community Cloud ist eine privaate Cloud, die jedoch von mehreren Organsiationen mit den gleichen Anforderungen geteilt wird. Hier kann die Verwaltung und der Standort ebenfalls jeweils intern oder extern sein.
+
+\textbf{Hybrid Cloud}
+Die Hybride Cloud ist eine Mischung verschiedener Bereitstellungsmodelle. Ein gängiges Beispiel hierfür ist eine Private Cloud, welche als Datenspeicher für Datenbanken genutzt wird und durch eine öffentliche Cloud ergänzt wird. Die öffentliche Cloud wird dazu genutzt Daten zu verarbeiten und kann unerwartete Lastspitzen abfangen.
+
+\section{Service-Ebenen}
+It Ressourcen werden beim Cloud Computing als sog. Dienste angeboten [Zarnekow (2012), S. 8.]. Um die verschiednen Dienste der Cloud zu differenzieren haben sich drei Ebenen im Cloud Computing durchgesetzt, Infrastructure as a Service (IaaS), Platform as a Service (PaaS)und Software as a Service (SaaS). Anhand Abbildung \ref{2.3} lässt sich erkennen, dass die verschiedenen Ebenen ein unterschiedlichen Aufwand von Seiten des Benutzer erfordern. Bei IaaS liegt relativ viel Verantwortung beim Kudnen, wohingegen bei SaaS keinerlei Verantworting beim Kunden liegt. Die unzähligen Services lassen sich in diese Ebenen einordnen oder gehören weiteren eigenen Ebenen an wie z.B. Database as a Service oder Function as a Service. Durch diese Banbreite an Diensten ist ebenso die vielfalt an Ebenen gewachsen und diese werden unter dem Begriff XaaS gesammelt. Im folgenden wird jedoch nur auf die vom NIST definierten Ebenen eingegangen.
+\fig{2.1}{Wirtz, B.W. (2018), Electronic Business, 6., aktualisierte und erweiterte Auflage 2018, Wiesbaden 2018.}
+\subsection{Infrastructure as a Service}
+Wie es der Name ahnen lässt, wird dem Kunden hier Infratsurktur oder virteulle Hardware in der Cloud bereitgestellt. Beispiele hierfür sind das anmieten von virtuellen Maschinen oder Speicherplatz für einen Backup. Dabei handelt es sich um die unterste Ebene, da der Kunde die meiste Verantwortung im ergleich zu den anderen ebenen besitzt. Bei einer virtuellen Maschinen muss der Kunde sich beispielweise um alles oberhalb des Betriebssystems kümmern. 
+\subsection{Platform as a Service}
+Hier erhält der Benutzer die Möglichkeit selbstentwickelte oder auch gekaufte Software in einer Laufzeitumgebung auszuführen [Mell, P., und T. Grance. 2011. The NIST definition of cloud computing. National Institute of Standards and Technology, U.S. Department of Commerce, 2011.] alles unterhalb der Laufzeitumgebung wird vom Provider bereitgestellt und festgelegt. In diesem Rahmen kann der Benutzer sich frei bewegen.
+\subsection{Software as a Service}
+In dieser Ebene stellt der Anbieter dem Benutzer eine Software bereit, die dieser Nutzen kann. Die gesamte Infrastruktur, Lizensierung und Aktualisierung liegt in der Verantwortung des Anbieters, wodurch der Benutzer von all dem nichts mitbekommt. Der Benutzer greift somit lediglich über seine Webbrowser auf die Anwendungen zu, welche in der Cloud ausgeführt werden. Dadurch lassen sich Anendungen aktualisieren ohne, dass der Anwender etwas davon mitbekommt, geschweige denn ein Update durchführen muss. Mell, P., und T. Grance. 2011. The NIST definition of cloud computing. National Institute of Standards and Technology, U.S. Department of Commerce, 2011.
+\section{Vor- und Nachteile der Cloud}
