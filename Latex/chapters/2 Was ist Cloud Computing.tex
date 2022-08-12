@@ -7,14 +7,14 @@ Dir Grundidee reicht bereits in die 1960er Jahre zurück. Bereits damals bestand
 
 Wenn das Netzwerk, anders als beim Grid-Computing, aus Knoten mit verschiedenen Aspekten aufgabeut ist, wird vom Grid-Computing gesprochen. Die verschiedene Knoten können sich hierbei in Hardware, Software oder ihrer Anbindung an das Netzwerk unterscheiden. Zudem könne sich die verschiedenen Knoten vom Netzwerk trennen. Dieses Konzept wird häufig dazu genutzt, um unbenutzte CPUs verschiedener Rechner auszunutzen und somit Große Probleme in kleinen Teilproblemen auf verschiedenen Rechnern zu bearbeiten \cite*[]{DAAS}.
 
-Ein weiteres Konzept stellt das Utility-Computing dar. Der Grundgedanke hierbei ist es, dass der Nutzer nur seine genutzte Rechenleistung bezahlt. Oft wird hier der Vergleich mit der Steckdose gezogen, da hier der Kunde ebenfalls nur für seinen bezogenen Strom bezahlt\cite*[]{TUB}. Etwaige Überlegungen sind jedoch an der nicht verfügbaren Hardware und dem mangelhaften Netzausbau gescheitert. Schließlich wurde das Konzept in den 1990er Jahren in das Konzept der Cloud integriert und ist fester Bestandteil des Konzepts \cite*[]{DAAS}. 
+Ein weiteres Konzept stellt das Utility-Computing dar. Der Grundgedanke hierbei ist es, dass der Nutzer nur seine genutzte Rechenleistung bezahlt. Oft wird hier der Vergleich mit der Steckdose gezogen, da hier der Kunde ebenfalls nur für seinen bezogenen Strom bezahlt\cite*[]{TUB}. Etwaige Überlegungen sind jedoch an der nicht verfügbaren Hardware und dem mangelhaften Netzausbau gescheitert. Schließlich wurde das Konzept in den 1990er Jahren in das Konzept der Cloud integriert und ist fester Bestandteil des Konzepts \cite*[]{DAAS}.
 
 
 \section{Definition}
 Eine einheitliche Definition  für Cloud Computing existiert in der Literatur nicht. Vorallem weil der Begriff relativ unscharf ist und sich die Technologie noch im Wandel befindet. Nach besteht Cloud Computing aus einer Ansammlung von Diensten, Anwendungen oder IT-Ressourcen, die dem Nutzer flexibel und skalierbar über das Internet angeboten werden. AWS als größter Cloud Anbieter definiert Cloud Computing wie folgt: "Cloud Computing" ist die bedarfsabhängige Bereitstellung von IT-Ressourcen über das Internet zu nutzungsabhängigen Preisen. Statt physische Rechenzentren und Server zu erwerben, zu besitzen und zu unterhalten, können Sie über einen Cloud-Anbieter wie Amazon Web Services (AWS) nach Bedarf auf Technologieservices wie beispielsweise Rechenleistung, Speicher und Datenbanken zugreifen."\cite*[]{AWSCC}
 
 \section{Merkmale}
-Da es jedoch keine einheitliche Definition gibt lässt sich Cloud Computing lediglich auf Grundlage der Merkmale Charakterisieren. Die Merkmale des National Institute of Technologys and Standards (NIST) gelten in der Praxis als auch Forschung als anerkannt und sind in \autoref{fig:2.2} zu sehen. 
+Da es jedoch keine einheitliche Definition gibt lässt sich Cloud Computing lediglich auf Grundlage der Merkmale Charakterisieren. Die Merkmale des National Institute of Technologys and Standards (NIST) gelten in der Praxis als auch Forschung als anerkannt und sind in \autoref{fig:2.2} zu sehen.
 \fig{2.2}{Charakteristika des Cloud Computings \cite*[]{DAAS}}
 
 \textbf{Ressource Pooling}
@@ -24,10 +24,10 @@ Der Begriff Ressource Pooling beschreibt das Ansammeln von verschiedensten IT-Re
 \textbf{Rapid Elasticity}
 
 Der Cloud ist es möglich auf Änderungen der Rechenleistung schnell und dynamisch zu reagieren. Die meisten Anbieter können dies auch ohne Vorlaufzeit, sodass der Benutzer das Gefühl suggeriert bekommt, aus unendlichen Ressourcen zu schöpfen. Die Anpassung erfolgt hierbei händisch durch den Benutzer oder automatisch durch den Anbieter. Wenn also z.B. ein Geschäft zu Weihnachten eine höhere Anzahl an Anfragen auf ihrer Website erwartet, passt sich die Cloud automatisch an die steigenden Anfragen an. \cite*[]{DAAS}
-   
+
 \textbf{On-demand Self-service}
 Eine weitere Charakteristik der Cloud ist die Möglichkeit sich nach Bedarf selbst bedienen  zu können. Der Cloudanbieter muss somit dem Benutzer auf Anfrage die angeforderte Rechenleistung bereitstellen, ohne dabei viel Konfiguration vornehmen zu müssen um die Elastizität zu gewährleisten. Der wirtschaftliche Betrieb ist hierbei nur durch automatisierte Verwaltung und Optimierung gewährleistet und bildet ein wichtiges Merkmal eines Cloud Anbieters. \cite*[]{DAAS}
-    
+
 \textbf{Broad Network Access}
 
 In den meisten Fällen erfolgt der Zugriff auf die Ressourcen der Cloud über ein Netzwerk. Um einen Zugriff von diversen Geräten zu ermöglichen, werden standardisierte REST Schnittstellen oder Web-APIs und Protokolle bzw. Datenformate wie z.B. HTTP, XML JSON usw. verwendet. Voraussetzung hierfür ist jedoch eine ausreichende Bandbreite der Verbindung. \cite*[]{DAAS}
@@ -37,7 +37,7 @@ In den meisten Fällen erfolgt der Zugriff auf die Ressourcen der Cloud über ei
 Nach dem Vorbild des Utility Computings wird bei Cloud Anbietern nach den tatsächlich genutzten Ressourcen bezahlt. Um dies zu gewährleisten muss der Anbieter die vom Kunden genutzten Ressourcen mithilfe eines Messverfahrens und einer Messgröße messen. Beispielsweise Datenspeicher werden anhand des genutzten Speicherplatz abgerechnet und Rechenleistung nach den durchgeführten CPU Zyklen. Zusammen mit der hohen Elastizität (Rapid Elasticity) lässt sich der Kunde also präzise seine  genutzten Abrechnen was als eines der Hauptmerkmale der Cloud gilt. \cite*[]{SIGCOMM}
 
 \section{Bereitstellungsmodelle}
-Clouds lassen sich aufgrund ihrer Öfnnung nach außen in vier verschiedene Bereitstellungsmodelle einteilen. Die verschiedenen Modelle sind in \autoref{2.3} veranschaulicht.
+Clouds lassen sich aufgrund ihrer Öfnnung nach außen in vier verschiedene Bereitstellungsmodelle einteilen. Die verschiedenen Modelle sind in \autoref{fig:2.3} veranschaulicht.
 \fig{2.3}{Die verschiedenen Bereitstellungsmodelle \cite*[]{DAAS}}
 
 \textbf{Public Cloud}
@@ -57,7 +57,7 @@ Die Community Cloud ist eine private Cloud, die jedoch von mehreren Organisation
 Die Hybride Cloud ist eine Mischung verschiedener Bereitstellungsmodelle. Ein gängiges Beispiel hierfür ist eine Private Cloud, welche als Datenspeicher für Datenbanken genutzt wird und durch eine öffentliche Cloud ergänzt wird. Die öffentliche Cloud wird dazu genutzt Daten zu verarbeiten und kann unerwartete Lastspitzen abfangen \cite*[]{DAAS}.
 
 \section{Service-Ebenen}
-It Ressourcen werden beim Cloud Computing als sog. Dienste angeboten \cite*[]{Zarnekow}. Um die verschiedenen Dienste der Cloud zu differenzieren haben sich drei Ebenen im Cloud Computing durchgesetzt, Infrastructure as a Service (IaaS), Platform as a Service (PaaS)und Software as a Service (SaaS). Anhand \autoref{2.1} lässt sich erkennen, dass die verschiedenen Ebenen ein unterschiedlichen Aufwand von Seiten des Benutzer erfordern. Bei IaaS liegt relativ viel Verantwortung beim Kunden, wohingegen bei SaaS keinerlei Verantwortung beim Kunden liegt. Die unzähligen Services lassen sich in diese Ebenen einordnen oder gehören weiteren eigenen Ebenen an wie z.B. Database as a Service oder Function as a Service. Durch diese Bandbreite an Diensten ist ebenso die Vielfalt an Ebenen gewachsen und diese werden unter dem Begriff XaaS gesammelt. Im folgenden wird jedoch nur auf die vom NIST definierten Ebenen eingegangen.
+It Ressourcen werden beim Cloud Computing als sog. Dienste angeboten \cite*[]{Zarnekow}. Um die verschiedenen Dienste der Cloud zu differenzieren haben sich drei Ebenen im Cloud Computing durchgesetzt, Infrastructure as a Service (IaaS), Platform as a Service (PaaS)und Software as a Service (SaaS). Anhand \autoref{fig:2.1} lässt sich erkennen, dass die verschiedenen Ebenen ein unterschiedlichen Aufwand von Seiten des Benutzer erfordern. Bei IaaS liegt relativ viel Verantwortung beim Kunden, wohingegen bei SaaS keinerlei Verantwortung beim Kunden liegt. Die unzähligen Services lassen sich in diese Ebenen einordnen oder gehören weiteren eigenen Ebenen an wie z.B. Database as a Service oder Function as a Service. Durch diese Bandbreite an Diensten ist ebenso die Vielfalt an Ebenen gewachsen und diese werden unter dem Begriff XaaS gesammelt. Im folgenden wird jedoch nur auf die vom NIST definierten Ebenen eingegangen.
 \fig{2.1}{\cite*[]{Wirtz2022}}
 
 \textbf{Infrastructure as a Service}
